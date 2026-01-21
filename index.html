@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,82 +8,132 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+        rel="stylesheet">
     <style>
         body {
             font-family: 'Noto Sans JP', sans-serif;
             background-color: #f8f5f2;
             color: #2d2a26;
         }
+
         .font-serif {
             font-family: 'Noto Serif JP', serif;
         }
+
         /* ヒーローセクションのオーバーレイ：画像の力強さを活かしつつ文字を際立たせる */
         .hero-overlay {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.7) 100%);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0.7) 100%);
         }
+
         .accent-border {
             border-color: #8b0000;
         }
+
         .text-shadow-hero {
-            text-shadow: 0 2px 30px rgba(0,0,0,0.9);
+            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.9);
         }
+
         /* アニメーション */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .animate-fade-in-up {
             animation: fadeInUp 1.5s ease-out forwards;
         }
+
+        @keyframes scrollLine {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        .animate-scroll-line {
+            animation: scrollLine 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+        }
+
+        @keyframes scrollGallery {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-scroll-gallery {
+            animation: scrollGallery 20s linear infinite;
+        }
+
+
         /* プレビュー反映確認用バージョン: v1.0.2 */
     </style>
 </head>
+
 <body class="overflow-x-hidden">
 
     <!-- Header -->
     <header class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-black font-serif tracking-widest text-red-900 uppercase">山形事変</h1>
+            <h1><img src="images/logo_text.png" alt="山形事変" class="h-10"></h1>
             <nav class="hidden md:flex space-x-8 text-sm font-bold tracking-widest">
-                <a href="#about" class="hover:text-red-700 transition">ABOUT</a>
-                <a href="#details" class="hover:text-red-700 transition">DETAILS</a>
-                <a href="#access" class="hover:text-red-700 transition">ACCESS</a>
+                <a href="#about" class="hover:text-red-700 transition">山形事変とは</a>
+                <a href="#details" class="hover:text-red-700 transition">開催概要</a>
+                <a href="#access" class="hover:text-red-700 transition">アクセス</a>
             </nav>
             <div class="bg-red-900 text-white px-5 py-2 text-xs font-bold tracking-widest rounded-sm">
-                ADMISSION FREE
+                入場無料
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-end md:items-center justify-center overflow-hidden bg-zinc-900">
+    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-zinc-900">
         <!-- Background Image: freepik__enhance__66441.jpg -->
         <div class="absolute inset-0 z-0">
-            <img src="images/hero-bg.png" 
-                 alt="山形事変 ヒーロービジュアル：文翔館と名車" 
-                 class="w-full h-full object-cover scale-100"
-                 onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000&auto=format&fit=crop'">
+            <img src="images/hero-bg.png" alt="山形事変 ヒーロービジュアル：文翔館と名車" class="w-full h-full object-cover scale-100"
+                onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000&auto=format&fit=crop'">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
 
-        <div class="relative z-10 text-center text-white px-4 pb-24 md:pb-0">
+        <div class="relative z-10 text-center text-white px-4">
             <div class="animate-fade-in-up">
                 <p class="text-base md:text-2xl mb-4 tracking-[0.5em] font-light text-shadow-hero">時代を彩った車たちの祭典</p>
-                <h2 class="text-7xl md:text-[11rem] font-serif font-black mb-6 tracking-tighter text-shadow-hero leading-none">山形事変</h2>
-                <div class="w-20 md:w-40 h-1 bg-white mx-auto mb-10 shadow-2xl"></div>
+                <h2 class="mb-6"><img src="images/logo_white.png" alt="山形事変"
+                        class="w-full max-w-4xl mx-auto drop-shadow-2xl"></h2>
+                <div class="w-full max-w-4xl h-px bg-white mx-auto mb-10 shadow-2xl"></div>
                 <div class="font-serif text-xl md:text-4xl tracking-widest mb-3 text-shadow-hero">
                     2026.4.18 <span class="text-sm md:text-xl ml-1">SAT</span>
                 </div>
-                <p class="text-sm md:text-xl font-light tracking-[0.3em] text-shadow-hero">山形県 文翔館 10:00 - 16:00</p>
+                <p class="text-sm md:text-xl font-light tracking-[0.3em] text-shadow-hero">山形県郷土館 文翔館 10:00 - 16:30</p>
             </div>
         </div>
-        
+
         <!-- Scroll Indicator -->
-        <a href="#about" class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/80 hover:text-white transition-all">
+        <a href="#about"
+            class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/80 hover:text-white transition-all">
             <div class="flex flex-col items-center">
                 <span class="text-[9px] tracking-[0.3em] mb-2 uppercase font-bold">Explore</span>
-                <div class="w-px h-16 bg-gradient-to-b from-white to-transparent"></div>
+                <div class="w-px h-16 bg-white/10 relative overflow-hidden">
+                    <div
+                        class="absolute w-full h-full bg-gradient-to-b from-transparent via-white to-transparent animate-scroll-line">
+                    </div>
+                </div>
             </div>
         </a>
     </section>
@@ -94,18 +145,29 @@
                 <div class="flex flex-col md:flex-row items-center gap-20">
                     <div class="md:w-1/2">
                         <h3 class="text-xs tracking-[0.4em] text-red-900 font-bold mb-6 uppercase">The Concept</h3>
-                        <h4 class="text-4xl md:text-5xl font-serif font-bold mb-10 leading-[1.2]">歴史建築と名車、<br>二つの美学の共鳴。</h4>
+                        <h4 class="text-4xl md:text-5xl font-serif font-bold mb-10 leading-[1.2]">歴史建築と名車、<br>二つの美学の共鳴。
+                        </h4>
                         <p class="leading-loose text-gray-600 mb-8 text-justify">
                             山形市の象徴である重要文化財「文翔館」。大正時代の風格を残すその広場に、当時のエンジニアたちが情熱を注ぎ込んだ名車たちが一堂に会します。石造りの外壁と磨き抜かれたボディライン。歴史を刻んだものだけが持つ静かな迫力を、この山形の地で体感してください。
                         </p>
                         <div class="inline-flex items-center space-x-4">
                             <span class="h-px w-12 bg-red-900"></span>
-                            <span class="font-bold text-red-900 tracking-widest text-sm uppercase">Heritage × Masterpiece</span>
+                            <span class="font-bold text-red-900 tracking-widest text-sm uppercase">Heritage ×
+                                Masterpiece</span>
                         </div>
                     </div>
                     <div class="md:w-1/2 relative">
                         <div class="absolute -top-6 -right-6 w-full h-full border border-red-900/20 -z-10"></div>
-                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1000&auto=format&fit=crop" alt="Classic Car Detail" class="w-full shadow-2xl grayscale-[20%] hover:grayscale-0 transition-all duration-700">
+                        <div id="slideshow" class="relative w-full aspect-[4/3] shadow-2xl overflow-hidden">
+                            <img src="./images/slide_01.jpg" alt="Slide 1"
+                                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100 slide-image">
+                            <img src="./images/slide_02.jpg" alt="Slide 2"
+                                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0 slide-image">
+                            <img src="./images/slide_03.jpg" alt="Slide 3"
+                                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0 slide-image">
+                            <img src="./images/slide_04.jpg" alt="Slide 4"
+                                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0 slide-image">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -119,22 +181,76 @@
                 <h3 class="text-4xl font-serif font-bold tracking-[0.2em] mb-6">開催概要</h3>
                 <div class="w-16 h-px bg-red-800 mx-auto"></div>
             </div>
-            <div class="grid md:grid-cols-3 gap-0 border border-zinc-800">
-                <div class="p-16 text-center border-b md:border-b-0 md:border-r border-zinc-800 hover:bg-zinc-900 transition">
-                    <p class="text-red-700 text-[10px] font-bold tracking-[0.3em] mb-6 uppercase">Date & Time</p>
-                    <p class="text-2xl font-serif mb-2">2026年4月18日 <span class="text-sm font-sans">土</span></p>
-                    <p class="text-zinc-500 font-light">10:00 - 16:00</p>
+            <div
+                class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-800 border-y border-zinc-800">
+                <!-- Date -->
+                <div
+                    class="group p-12 text-center hover:bg-zinc-900 transition duration-500 flex flex-col items-center">
+                    <div class="flex justify-center mb-6 text-red-700 group-hover:scale-110 transition duration-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <p class="text-red-700 text-xs font-bold tracking-widest mb-4 uppercase">開催日時</p>
+                    <p class="text-3xl font-serif font-medium mb-3">2026年4月18日 <span
+                            class="text-base font-sans ml-1 text-zinc-400">土曜日</span></p>
+                    <p class="text-zinc-500 font-light tracking-wider mt-auto">10:00 - 16:30</p>
                 </div>
-                <div class="p-16 text-center border-b md:border-b-0 md:border-r border-zinc-800 hover:bg-zinc-900 transition">
-                    <p class="text-red-700 text-[10px] font-bold tracking-[0.3em] mb-6 uppercase">Location</p>
-                    <p class="text-2xl font-serif mb-2">山形県 文翔館</p>
-                    <p class="text-zinc-500 font-light text-sm">山形市旅篭町3-4-51</p>
+
+                <!-- Location -->
+                <div
+                    class="group p-12 text-center hover:bg-zinc-900 transition duration-500 flex flex-col items-center">
+                    <div class="flex justify-center mb-6 text-red-700 group-hover:scale-110 transition duration-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <p class="text-red-700 text-xs font-bold tracking-widest mb-4 uppercase">会場</p>
+                    <p class="text-3xl font-serif font-medium mb-3">山形県郷土館<br>文翔館</p>
+                    <p class="text-zinc-500 font-light text-sm tracking-wider mt-auto">山形市旅篭町3-4-51</p>
                 </div>
-                <div class="p-16 text-center hover:bg-zinc-900 transition">
-                    <p class="text-red-700 text-[10px] font-bold tracking-[0.3em] mb-6 uppercase">Admission</p>
-                    <p class="text-5xl font-serif mb-2">無料</p>
-                    <p class="text-zinc-500 text-[10px] tracking-widest font-bold">PRE-REGISTRATION NOT REQUIRED</p>
+
+                <!-- Admission -->
+                <div
+                    class="group p-12 text-center hover:bg-zinc-900 transition duration-500 flex flex-col items-center">
+                    <div class="flex justify-center mb-6 text-red-700 group-hover:scale-110 transition duration-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path>
+                            <path d="M4 6v12c0 1.1.9 2 2 2h14v-4"></path>
+                            <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"></path>
+                        </svg>
+                    </div>
+                    <p class="text-red-700 text-xs font-bold tracking-widest mb-4 uppercase">入場料</p>
+                    <p class="text-3xl font-serif font-medium mb-3">無料</p>
+                    <p class="text-zinc-600 text-xs tracking-wide font-bold mt-auto whitespace-nowrap">
+                        どなたでもご自由にご入場いただけます</p>
                 </div>
+            </div>
+            <div class="mt-12 text-center">
+                <p class="text-zinc-500 text-sm tracking-widest">
+                    お問い合わせは
+                    <a href="https://www.instagram.com/yamagata.jihen?igsh=MWUwNHZrMmY4Ynkwaw==" target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-red-700 hover:text-red-500 transition border-b border-red-900 pb-0.5">
+                        InstagramのDM
+                    </a>
+                    よりお願いいたします。
+                </p>
+            </div>
+            <div class="mt-20 max-w-4xl mx-auto bg-zinc-900/50 p-8 border border-zinc-800 rounded-sm">
+                <h4 class="text-red-700 font-bold mb-4 text-center tracking-widest text-sm">【ご来場のみなさまへ：マナーと法令遵守のお願い】
+                </h4>
+                <p class="text-zinc-400 text-xs leading-loose text-justify tracking-wider">
+                    本イベントは重要文化財を会場としております。歴史的景観を損なう恐れのある不正改造車（保安基準非適合車）や、極端な低車高・騒音を伴う車両でのご来場は固くお断りいたします。
+                    周辺住民のみなさまへのご配慮を忘れず、マナーを守ってお越しください。
+                </p>
             </div>
         </div>
     </section>
@@ -143,36 +259,77 @@
     <section id="access" class="py-32 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-20">
-                <div class="md:w-1/3">
-                    <h3 class="text-4xl font-serif font-bold mb-10">アクセス</h3>
-                    <div class="space-y-10">
+                <div class="md:w-1/2">
+                    <h3 class="text-4xl font-serif font-bold mb-6">アクセス</h3>
+                    <div class="mb-10">
+                        <p class="text-xl font-bold mb-2">山形県郷土館 文翔館</p>
+                        <p class="text-gray-600">〒990-0047 山形県山形市旅篭町３丁目４−５１</p>
+                    </div>
+                    <div class="space-y-8">
+                        <!-- Public Transport -->
                         <div>
-                            <h4 class="flex items-center text-red-900 font-bold mb-3 uppercase">
+                            <h4 class="flex items-center text-red-900 font-bold mb-4 uppercase">
                                 <span class="w-2 h-2 bg-red-900 rounded-full mr-3"></span>
-                                電車・バス
+                                公共交通機関
                             </h4>
-                            <p class="text-gray-600 text-sm leading-relaxed">JR山形駅より市役所経由のバスで約10分。「市役所前」停留所下車、徒歩1分。</p>
+
+                            <div class="pl-5 space-y-4">
+                                <!-- Airport -->
+                                <div class="border-l-2 border-gray-100 pl-4">
+                                    <p class="text-xs font-bold text-gray-400 mb-1 tracking-widest">山形空港から</p>
+                                    <p class="text-gray-700 text-sm font-bold">山形空港 ➔ JR山形駅</p>
+                                    <p class="text-gray-500 text-xs mt-1">山形空港シャトルバス利用（約30分）</p>
+                                </div>
+
+                                <!-- Station -->
+                                <div class="border-l-2 border-gray-100 pl-4">
+                                    <p class="text-xs font-bold text-gray-400 mb-1 tracking-widest">JR山形駅から</p>
+
+                                    <div class="mb-3">
+                                        <p class="text-gray-700 text-sm font-bold mb-1">市役所経由 路線バス</p>
+                                        <p class="text-gray-600 text-sm leading-relaxed">
+                                            「山形市役所前」下車（約10分）➔ 徒歩1分
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-gray-700 text-sm font-bold mb-1">ベニちゃんバス <span
+                                                class="text-xs font-normal text-gray-500">（東くるりん / 西くるりん）</span></p>
+                                        <p class="text-gray-600 text-sm leading-relaxed">
+                                            「市役所南口」下車（約8分）➔ 徒歩5分
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- Car -->
                         <div>
-                            <h4 class="flex items-center text-red-900 font-bold mb-3 uppercase">
+                            <h4 class="flex items-center text-red-900 font-bold mb-4 uppercase">
                                 <span class="w-2 h-2 bg-red-900 rounded-full mr-3"></span>
                                 お車
                             </h4>
-                            <p class="text-gray-600 text-sm leading-relaxed">山形蔵王ICより約10分。会場周辺に駐車場はございません。近隣の市営駐車場またはコインパーキングをご利用ください。</p>
+                            <div class="pl-5 border-l-2 border-gray-100 pl-4">
+                                <p class="text-gray-700 text-sm font-bold mb-1">山形自動車道「山形蔵王IC」</p>
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    ICより車で約10分
+                                </p>
+                                <p
+                                    class="text-red-800 text-xs mt-4 leading-relaxed bg-red-50 p-3 rounded border border-red-100">
+                                    当イベント参加者向けの駐車場はございません。近隣のコインパーキングをご利用ください。<br>
+                                    文翔館の駐車場は一般と関係者のみの駐車です。
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="md:w-2/3">
-                    <div class="w-full aspect-[16/10] bg-zinc-50 rounded-lg overflow-hidden border border-gray-100 shadow-inner relative">
-                        <iframe 
-                            src="https://maps.google.com/maps?q=%E5%B1%B1%E5%BD%A2%E7%9C%8C%E5%B1%B1%E5%BD%A2%E5%B8%82%E6%97%85%E7%AF%AD%E7%94%BA%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%94%E2%88%92%EF%BC%95%EF%BC%91&t=&z=17&ie=UTF8&iwloc=&output=embed" 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="Google Maps: 山形県文翔館">
+                <div class="md:w-1/2">
+                    <div
+                        class="w-full h-64 md:h-full bg-zinc-50 rounded-lg overflow-hidden border border-gray-100 shadow-inner relative">
+                        <iframe
+                            src="https://maps.google.com/maps?q=%E3%80%92990-0047%20%E5%B1%B1%E5%BD%A2%E7%9C%8C%E5%B1%B1%E5%BD%A2%E5%B8%82%E6%97%85%E7%AF%AD%E7%94%BA%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%94%E2%88%92%EF%BC%95%EF%BC%91&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" title="Google Maps: 山形県文翔館">
                         </iframe>
                     </div>
                 </div>
@@ -180,24 +337,63 @@
         </div>
     </section>
 
+    <!-- Gallery Section -->
+    <section class="bg-[#121212] py-20 overflow-hidden">
+        <div class="flex animate-scroll-gallery w-max gap-4">
+            <!-- Original Set -->
+            <img src="./images/gallery_01.jpg"
+                class="h-64 md:h-80 object-cover rounded-sm grayscale hover:grayscale-0 transition duration-500"
+                alt="Gallery Image">
+            <img src="./images/gallery_02.jpg"
+                class="h-64 md:h-80 object-cover rounded-sm grayscale hover:grayscale-0 transition duration-500"
+                alt="Gallery Image">
+            <img src="./images/gallery_03.jpg"
+                class="h-64 md:h-80 object-cover rounded-sm grayscale hover:grayscale-0 transition duration-500"
+                alt="Gallery Image">
+            <img src="./images/gallery_04.jpg"
+                class="h-64 md:h-80 object-cover rounded-sm grayscale hover:grayscale-0 transition duration-500"
+                alt="Gallery Image">
+            <img src="./images/gallery_05.jpg"
+                class="h-64 md:h-80 object-cover rounded-sm grayscale hover:grayscale-0 transition duration-500"
+                alt="Gallery Image">
+
+            <!-- Duplicate Set for Loop -->
+            <img src="./images/gallery_01.jpg"
+                class="h-64 md:h-80 object-cover rounded-sm grayscale hover:grayscale-0 transition duration-500"
+                alt="Gallery Image">
+            <img src="./images/gallery_02.jpg"
+                class="h-64 md:h-80 object-cover rounded-sm grayscale hover:grayscale-0 transition duration-500"
+                alt="Gallery Image">
+            <img src="./images/gallery_03.jpg"
+                class="h-64 md:h-80 object-cover rounded-sm grayscale hover:grayscale-0 transition duration-500"
+                alt="Gallery Image">
+            <img src="./images/gallery_04.jpg"
+                class="h-64 md:h-80 object-cover rounded-sm grayscale hover:grayscale-0 transition duration-500"
+                alt="Gallery Image">
+            <img src="./images/gallery_05.jpg"
+                class="h-64 md:h-80 object-cover rounded-sm grayscale hover:grayscale-0 transition duration-500"
+                alt="Gallery Image">
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-white border-t border-gray-100 py-24">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-serif font-black mb-4 tracking-tighter text-red-900 uppercase">山形事変</h2>
-            <p class="text-gray-400 text-[10px] tracking-[0.5em] mb-16 uppercase font-medium">The Festival of Cars That Colored the Era</p>
-            
+            <h2><img src="images/logo_text.png" alt="山形事変" class="h-20 mb-4 mx-auto"></h2>
+            <p class="text-gray-400 text-[10px] tracking-[0.5em] mb-16 uppercase font-medium">The Festival of Cars That
+                Colored the Era</p>
+
             <div class="flex justify-center space-x-16 text-[10px] font-black tracking-[0.3em] text-gray-900 mb-20">
-                <a href="#" class="hover:text-red-700 transition relative group">
+                <a href="https://www.instagram.com/yamagata.jihen?igsh=MWUwNHZrMmY4Ynkwaw=="
+                    class="hover:text-red-700 transition relative group" target="_blank" rel="noopener noreferrer">
                     INSTAGRAM
-                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-red-700 transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#" class="hover:text-red-700 transition relative group">
-                    CONTACT
-                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-red-700 transition-all group-hover:w-full"></span>
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-px bg-red-700 transition-all group-hover:w-full"></span>
                 </a>
             </div>
-            
-            <p class="text-[9px] text-gray-300 tracking-[0.5em] uppercase">© 2026 YAMAGATA JIHEN COMMITTEE. ALL RIGHTS RESERVED.</p>
+
+            <p class="text-[9px] text-gray-300 tracking-[0.5em] uppercase">© 2026 YAMAGATA JIHEN COMMITTEE. ALL RIGHTS
+                RESERVED.</p>
         </div>
     </footer>
 
@@ -231,6 +427,21 @@
                 header.classList.add('py-4');
             }
         });
+
+        // Slideshow logic
+        const slides = document.querySelectorAll('.slide-image');
+        let currentSlide = 0;
+
+        setInterval(() => {
+            slides[currentSlide].classList.remove('opacity-100');
+            slides[currentSlide].classList.add('opacity-0');
+
+            currentSlide = (currentSlide + 1) % slides.length;
+
+            slides[currentSlide].classList.remove('opacity-0');
+            slides[currentSlide].classList.add('opacity-100');
+        }, 4000); // Change image every 4 seconds
     </script>
 </body>
+
 </html>
