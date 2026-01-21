@@ -186,7 +186,7 @@
                 class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-800 border-y border-zinc-800">
                 <!-- Date -->
                 <div
-                    class="group p-12 text-center hover:bg-zinc-900 transition duration-500 flex flex-col items-center">
+                    class="group p-6 md:p-12 text-center hover:bg-zinc-900 transition duration-500 flex flex-col items-center">
                     <div class="flex justify-center mb-6 text-red-700 group-hover:scale-110 transition duration-500">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -197,8 +197,8 @@
                         </svg>
                     </div>
                     <p class="text-red-700 text-xs font-bold tracking-widest mb-4 uppercase">開催日時</p>
-                    <p class="text-3xl font-serif font-medium mb-3">2026年4月18日 <span
-                            class="text-base font-sans ml-1 text-zinc-400">土曜日</span></p>
+                    <p class="text-3xl font-serif font-medium mb-2">2026年4月18日</p>
+                    <p class="text-base font-sans text-zinc-400 whitespace-nowrap mb-4">土曜日</p>
                     <p class="text-zinc-500 font-light tracking-wider mt-auto">10:00 - 16:30</p>
                 </div>
 
@@ -381,9 +381,11 @@
     <footer class="bg-white border-t border-gray-100 py-24">
         <div class="container mx-auto px-6 text-center">
             <h2><img src="images/logo_text.png" alt="山形事変" class="h-20 mb-4 mx-auto"></h2>
-            <p class="text-gray-400 text-[10px] tracking-[0.5em] mb-16 uppercase font-medium">The Festival of Cars That
+            <p class="text-gray-400 text-[10px] tracking-[0.5em] mb-6 uppercase font-medium">The Festival of Cars That
                 Colored the Era</p>
+            <p class="text-zinc-500 text-xs font-bold tracking-[0.2em] mb-12">主催：山形事変実行委員会</p>
 
+            <p class="text-zinc-500 text-[10px] tracking-widest mb-4">イベント告知はこちらから</p>
             <div class="flex justify-center space-x-16 text-[10px] font-black tracking-[0.3em] text-gray-900 mb-20">
                 <a href="https://www.instagram.com/yamagata.jihen?igsh=MWUwNHZrMmY4Ynkwaw=="
                     class="hover:text-red-700 transition relative group" target="_blank" rel="noopener noreferrer">
@@ -397,6 +399,16 @@
                 RESERVED.</p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+        class="fixed bottom-8 right-8 bg-red-900 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-red-800 z-50 focus:outline-none"
+        aria-label="ページトップへ戻る">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
 
     <script>
         // Smooth scroll with offset for sticky header
@@ -417,16 +429,51 @@
             });
         });
 
-        // Header scroll effect
+        // Header scroll effect & Back to Top visibility
+        const header = document.querySelector('header');
+        const backToTopButton = document.getElementById('back-to-top');
+        let lastScrollY = window.scrollY;
+
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
+            const currentScrollY = window.scrollY;
+
+            // Header effect
+            if (currentScrollY > 50) {
                 header.classList.add('shadow-lg', 'py-2');
                 header.classList.remove('py-4');
             } else {
                 header.classList.remove('shadow-lg', 'py-2');
                 header.classList.add('py-4');
             }
+
+            // Back to Top button visibility logic
+            // Show only when scrolling DOWN and not at the top
+            // Hide when scrolling UP
+            if (currentScrollY > 300) {
+                if (currentScrollY > lastScrollY) {
+                    // Scrolling DOWN -> Show
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    // Scrolling UP -> Hide
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                }
+            } else {
+                // At top -> Hide
+                backToTopButton.classList.add('opacity-0', 'invisible');
+                backToTopButton.classList.remove('opacity-100', 'visible');
+            }
+
+            lastScrollY = currentScrollY;
+        });
+
+        // Back to Top functionality
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
 
         // Slideshow logic
