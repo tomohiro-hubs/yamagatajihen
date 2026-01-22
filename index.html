@@ -35,6 +35,10 @@
             text-shadow: 0 2px 30px rgba(0, 0, 0, 0.9);
         }
 
+        .logo-drop-shadow {
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.9));
+        }
+
         /* アニメーション */
         @keyframes fadeInUp {
             from {
@@ -96,7 +100,7 @@
                 <a href="#details" class="hover:text-red-700 transition">開催概要</a>
                 <a href="#access" class="hover:text-red-700 transition">アクセス</a>
             </nav>
-            <div class="bg-red-900 text-white px-5 py-2 text-xs font-bold tracking-widest rounded-sm">
+            <div class="bg-red-900 text-white px-6 py-2.5 text-sm font-bold tracking-widest rounded-sm">
                 入場無料
             </div>
         </div>
@@ -106,16 +110,16 @@
     <section class="relative h-screen flex items-center justify-center overflow-hidden bg-zinc-900">
         <!-- Background Image: freepik__enhance__66441.jpg -->
         <div class="absolute inset-0 z-0">
-            <img src="images/hero-bg.png" alt="山形事変 ヒーロービジュアル：文翔館と名車" class="w-full h-full object-cover scale-100"
+            <img src="images/hero-bg-v2.png" alt="山形事変 ヒーロービジュアル：文翔館と名車" class="w-full h-full object-cover scale-100"
                 onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000&auto=format&fit=crop'">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
 
-        <div class="relative z-10 text-center text-white px-4">
+        <div class="relative z-10 text-center text-white px-4 pb-24">
             <div class="animate-fade-in-up">
                 <p class="text-base md:text-2xl mb-4 tracking-[0.5em] font-light text-shadow-hero">時代を彩った車たちの祭典</p>
                 <h2 class="mb-6"><img src="images/logo_white.png" alt="山形事変"
-                        class="w-full max-w-4xl mx-auto drop-shadow-2xl"></h2>
+                        class="w-full max-w-4xl mx-auto logo-drop-shadow"></h2>
                 <div class="w-full max-w-4xl h-px bg-white mx-auto mb-10 shadow-2xl"></div>
                 <div class="font-serif text-xl md:text-4xl tracking-widest mb-3 text-shadow-hero">
                     2026.4.18 <span class="text-sm md:text-xl ml-1">SAT</span>
