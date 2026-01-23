@@ -107,11 +107,15 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-zinc-900">
-        <!-- Background Image: freepik__enhance__66441.jpg -->
+    <section class="relative h-[100svh] flex items-center justify-center overflow-hidden bg-zinc-900">
+        <!-- Background Image Switch: PC/SP -->
         <div class="absolute inset-0 z-0">
-            <img src="images/hero-bg-v2.png" alt="山形事変 ヒーロービジュアル：文翔館と名車" class="w-full h-full object-cover scale-100"
-                onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000&auto=format&fit=crop'">
+            <picture>
+                <source media="(max-width: 768px)" srcset="images/top_sp.png">
+                <img src="images/top2.jpg" alt="山形事変 ヒーロービジュアル：文翔館と名車"
+                    class="w-full h-full object-cover md:object-center" style="object-position: -5px center;"
+                    onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000&auto=format&fit=crop'">
+            </picture>
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
 
@@ -388,6 +392,13 @@
             <p class="text-gray-400 text-[10px] tracking-[0.5em] mb-6 uppercase font-medium">The Festival of Cars That
                 Colored the Era</p>
             <p class="text-zinc-500 text-xs font-bold tracking-[0.2em] mb-12">主催：山形事変実行委員会</p>
+
+            <div class="flex flex-col items-center justify-center mb-12">
+                <p class="text-zinc-500 text-xs font-bold tracking-[0.2em] mb-4">協賛</p>
+                <a href="https://eleven-ws.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="images/sponsor_eleven.jpg" alt="ELEVEN WORK STUDIO" class="h-8 md:h-10">
+                </a>
+            </div>
 
             <p class="text-zinc-500 text-[10px] tracking-widest mb-4">イベント告知はこちらから</p>
             <div class="flex justify-center space-x-16 text-[10px] font-black tracking-[0.3em] text-gray-900 mb-20">
